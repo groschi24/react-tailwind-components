@@ -1,0 +1,34 @@
+{
+  "name": "@wirecore/wirestyle",
+  "private": true,
+  "version": "0.7.3",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "ci:link": "lerna link",
+    "ci:install": "lerna exec npm install --scope @wirecore/wirestyle* --stream && npm run ci:link",
+    "build": "lerna run build --scope @wirecore/wirestyle* --stream",
+    "watch": "lerna run watch --scope @wirecore/wirestyle* --stream",
+    "package": "lerna exec --scope @wirecore/wirestyle* -- npm pack",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lerna": "^5.1.8",
+    "standard-version": "^9.5.0"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3"
+  }
+}

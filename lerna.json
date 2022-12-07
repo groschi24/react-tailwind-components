@@ -1,0 +1,13 @@
+{
+  "packages": ["packages/*"],
+  "npmClient": "npm",
+  "useWorkspaces": true,
+  "version": "0.6.1",
+  "command": {
+    "publish": {
+      "registry": "https://gitlab.com/api/v4/projects/32300615/packages/npm/",
+      "@wirecore:registry": "https://gitlab.com/api/v4/projects/32300615/packages/npm/",
+      "conventionalCommits": true
+    }
+  }
+}

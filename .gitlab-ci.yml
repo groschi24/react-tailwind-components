@@ -1,0 +1,39 @@
+image: node:18
+
+stages:
+  - build
+
+build-test:
+  stage: build
+  when: manual
+  script:
+    - npm install
+    - npm run ci:install
+    - npm run build
+    #- npm version --no-git-tag-version ${CI_COMMIT_TAG}
+    #- npx lerna version --no-git-tag-version ${CI_COMMIT_TAG}
+    - npm config delete "@inode:registry"
+    - npx lerna publish from-package --no-verify-access --canary --yes
+
+build:
+  stage: build
+  only:
+    - tags
+  # cache:
+  #   key: build-cache
+  #   paths:
+  #     - node_modules/
+  #     - lib/
+  #     - .npmrc
+  #   policy: push
+  script:
+    #- echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
+    - npm install
+    - npm run ci:install
+    - npm run build
+    #- cd packages/wirestyle
+    #- npm version --no-git-tag-version ${CI_COMMIT_TAG}
+    #- npm publish
+    - npm config delete "@inode:registry"
+    #- npx lerna publish --canary --yes
+    - npx lerna publish from-package --no-verify-access --canary --yes

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  font-family: 'Inter', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
+}

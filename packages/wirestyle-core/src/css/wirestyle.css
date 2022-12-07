@@ -1,0 +1,124 @@
+/* TAILWIND CSS */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .caret-black {
+    caret-color: black;
+  }
+  .caret-white {
+    caret-color: white;
+  }
+}
+
+/* BASE TEXT */
+
+h1 {
+  @apply text-4xl font-black;
+}
+
+p {
+  @apply text-base;
+}
+
+/* APP */
+
+#root {
+  @apply w-screen transition-position lg:w-auto;
+}
+
+.dropdown {
+  @apply cursor-pointer;
+}
+
+.m-clipped,
+.m-clipped body {
+  @apply overflow-hidden lg:overflow-visible;
+}
+
+.full-screen body {
+  @apply p-0;
+}
+
+li.title-stack-item:not(:last-child):after {
+  content: '/';
+  @apply inline-block pl-3;
+}
+
+ul {
+  @apply list-disc;
+}
+
+/* TABLE */
+
+table {
+  @apply w-full;
+}
+
+thead {
+  @apply hidden lg:table-header-group;
+}
+
+tr {
+  @apply max-w-full block relative border-b-4 border-black border-opacity-10
+        lg:table-row lg:border-b-0;
+}
+
+tr:last-child {
+  @apply border-b-0;
+}
+
+th {
+  @apply lg:text-left lg:py-2 lg:px-3;
+}
+
+td {
+  @apply flex justify-between text-right py-3 px-4 align-top border-b border-black border-opacity-10
+        lg:table-cell lg:text-left lg:py-2 lg:px-3 lg:align-middle lg:border-b-0;
+}
+
+tr:nth-child(odd) td {
+  @apply lg:bg-black lg:bg-opacity-5 lg:dark:bg-white lg:dark:bg-opacity-5;
+}
+
+td:last-child {
+  @apply border-b-0;
+}
+
+tbody tr:hover td {
+  @apply lg:bg-black lg:bg-opacity-5 lg:dark:bg-white lg:dark:bg-opacity-5;
+}
+
+td:before {
+  content: attr(data-label);
+  @apply font-semibold pr-3 text-left lg:hidden;
+}
+
+td.checkbox-cell,
+th.checkbox-cell {
+  @apply lg:w-5;
+}
+
+td.progress-cell progress {
+  @apply flex w-2/5 self-center
+        lg:w-full;
+}
+
+td.image-cell {
+  @apply border-b-0 lg:w-6;
+}
+
+td.image-cell:before,
+td.actions-cell:before {
+  @apply hidden;
+}
+
+td.image-cell .image {
+  @apply w-24 h-24 mx-auto lg:w-6 lg:h-6;
+}
+
+.table-pagination {
+  @apply px-3 py-3 border-t border-black border-opacity-10;
+}
