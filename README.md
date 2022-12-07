@@ -1,15 +1,5 @@
-# Generate the Changelog
+# Simple Use
 
-https://github.com/conventional-changelog/standard-version
-
-First Release:
-
-```sh
-npm run release -- --first-release
-```
-
-Release:
-
-```sh
-npm run [release:minor | release:patch | release:major]
-```
+1. npm run watch
+2. cd ./docs
+3. npm run dev
